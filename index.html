@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unprocessed — Live in London • 30 Oct 2025</title>
+  <meta name="description" content="Unprocessed live concert — Blondies Brewery, London — 30 October 2025. Tickets: GA, Early Bird, VIP, Meet & Greet. Starts at 19:00." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --panel:#0f1113;
+      --muted:#9aa0a6;
+      --accent:#e23b3b; /* red accent */
+      --glass: rgba(255,255,255,0.04);
+      --card:#121216;
+      --max-width:1200px;
+      --nav-height:72px;
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth; /* smooth scroll */
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* NAVBAR */
+    .site-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:var(--nav-height);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11,11,13,0.55), rgba(11,11,13,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .site-nav.scrolled{
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+      background: linear-gradient(180deg, rgba(11,11,13,0.85), rgba(11,11,13,0.75));
+    }
+
+    .nav-inner{
+      width:100%;
+      max-width:var(--max-width);
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo .symbol{
+      width:44px;height:44px;border-radius:8px;
+      background: linear-gradient(135deg,#2b2b2b,var(--accent));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:18px;color:#fff;letter-spacing:.6px;
+      box-shadow: 0 6px 18px rgba(226,59,59,0.08);
+    }
+    .logo .title{
+      font-weight:700;font-size:16px;
+      letter-spacing:0.6px;
+    }
+    nav .nav-links{
+      display:flex;gap:18px;align-items:center;
+    }
+    nav .nav-links a{
+      font-weight:600;color:var(--muted);padding:8px 12px;border-radius:8px;
+      transition: color .18s ease, background .18s ease, transform .15s ease;
+    }
+    nav .nav-links a:hover{
+      color:#fff;background:rgba(255,255,255,0.03);transform:translateY(-2px);
+    }
+
+    /* CTA button in nav */
+    .btn-cta{
+      background: linear-gradient(90deg,var(--accent), #ff5b5b);
+      color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow: 0 8px 30px rgba(226,59,59,0.14);border:none;cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-cta:active{transform:translateY(1px)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px}
+
+    /* Hamburger (mobile) */
+    .hamburger{
+      display:none;
+      width:44px;height:44px;border-radius:8px;align-items:center;justify-content:center;
+      background:transparent;border:none;color:var(--muted);cursor:pointer;
+    }
+
+    /* HERO */
+    header.hero{
+      min-height:calc(100vh - var(--nav-height));
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding: calc(var(--nav-height) + 28px) 20px 60px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-inner{
+      max-width:1200px;margin:0 auto;display:flex;gap:40px;align-items:center;width:100%;
+    }
+
+    .hero-left{
+      flex:1;max-width:760px;
+    }
+    .eyebrow{
+      display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);
+      color:var(--muted);font-weight:600;font-size:13px;margin-bottom:18px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    h1{
+      font-size:clamp(28px,5.2vw,54px);
+      margin:6px 0 12px;
+      line-height:1.02;
+      letter-spacing:-0.02em;
+      color: #f0f0f0; /* UPDATED: Changed to solid light gray/white */
+    }
+    p.lead{
+      color:var(--muted);font-size:16px;max-width:60ch;margin-bottom:20px;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .big-cta{
+      font-size:16px;padding:14px 18px;border-radius:12px;border:none;cursor:pointer;
+      background: linear-gradient(90deg,var(--accent), #ff6a6a);
+      color:#fff;font-weight:700;box-shadow: 0 14px 40px rgba(226,59,59,0.12);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .big-cta:hover{transform:translateY(-4px)}
+    .secondary{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:12px;color:var(--muted);
+    }
+
+    /* Hero right visual */
+    .hero-right{
+      width:420px;flex:0 0 420px;display:flex;align-items:center;justify-content:center;
+    }
+    .visual-card{
+      width:100%;height:320px;border-radius:18px;background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12)),
+      linear-gradient(135deg, rgba(226,59,59,0.12), rgba(0,0,0,0.15));
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      padding:20px;display:flex;flex-direction:column;justify-content:flex-end;
+      gap:10px;border:1px solid rgba(255,255,255,0.03);overflow:hidden;
+      transform:translateY(0);transition:transform .45s cubic-bezier(.2,.9,.2,1);
+    }
+    .visual-card:hover{transform:translateY(-10px)}
+
+    .band-info{
+      display:flex;gap:12px;align-items:center;
+    }
+    .band-thumb{width:72px;height:72px;border-radius:10px;background:linear-gradient(90deg,#222,#000);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+    .meta{color:var(--muted);font-size:13px}
+
+    /* SECTIONS */
+    main{
+      margin-top:0;
+      padding-top:24px;
+    }
+    section{
+      padding:64px 20px;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* About */
+    .about{
+      display:flex;gap:28px;align-items:center;flex-wrap:wrap;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:16px;padding:26px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .about .text{flex:2;min-width:240px}
+    .about .image{flex:1;min-width:220px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#111,#090909);height:200px;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+    /* Tickets preview */
+    .tickets-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:18px;
+    }
+    .ticket{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:flex;flex-direction:column;gap:10px;min-height:170px;
+    }
+    .ticket:hover{transform:translateY(-8px);box-shadow: 0 24px 60px rgba(0,0,0,0.6)}
+    .ticket .title{font-weight:700;font-size:16px}
+    .ticket .price{font-size:18px;font-weight:800;color:var(--accent)}
+    .ticket .notes{color:var(--muted);font-size:13px}
+    .ticket .buy{
+      margin-top:auto;padding:10px 12px;border-radius:10px;border:none;cursor:pointer;
+      background: linear-gradient(90deg,var(--accent), #ff6a6a);color:#fff;font-weight:700;
+      transition: transform .12s ease;
+    }
+    .ticket .buy:active{transform:translateY(1px)}
+
+    /* Contact/venue */
+    .venue{
+      display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .venue .left{flex:1;min-width:240px}
+    .venue .right{flex:1;min-width:240px}
+    .address{font-weight:700}
+    .time{color:var(--muted);margin-top:6px}
+
+    /* Footer */
+    footer{padding:28px 20px;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      .hero-right{width:100%;flex:unset}
+      .tickets-grid{grid-template-columns: repeat(2, 1fr)}
+      .visual-card{height:260px}
+    }
+    @media (max-width:640px){
+      .nav-inner{padding:0 14px}
+      .nav .nav-links{display:none}
+      .hamburger{display:flex}
+      .logo .title{display:none}
+      .hero{padding:calc(var(--nav-height) + 16px) 14px 40px}
+      section{padding:36px 14px}
+      .tickets-grid{grid-template-columns:1fr;gap:12px}
+      header.hero{min-height:calc(100vh - var(--nav-height))}
+      .visual-card{height:220px}
+    }
+
+    /* small animations */
+    @keyframes floatUp {
+      from { transform: translateY(10px); opacity:0 }
+      to { transform: translateY(0); opacity:1 }
+    }
+
+    .reveal{animation: floatUp .7s cubic-bezier(.2,.9,.2,1) both}
+    .stagger-1{animation-delay:.08s}
+    .stagger-2{animation-delay:.16s}
+    .stagger-3{animation-delay:.24s}
+    .stagger-4{animation-delay:.32s}
+
+    /* hover link underline */
+    .underline {
+      position:relative;
+      overflow:visible;
+    }
+    .underline::after{
+      content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--accent);transition:right .22s cubic-bezier(.2,.9,.2,1);
+    }
+    .underline:hover::after{right:0}
+
+    /* focus outlines for accessibility */
+    a:focus, button:focus, .hamburger:focus{outline:3px solid rgba(226,59,59,0.16);outline-offset:3px}
+
+    /* header offset for anchors (so section won't hide under fixed nav) */
+    section[id]{scroll-margin-top: calc(var(--nav-height) + 16px)}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <div class="logo" aria-hidden="false">
+        <div class="symbol">U!</div>
+        <div class="title">Unprocessed</div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <div class="nav-links" id="nav-links">
+          <a class="underline" href="#about">About</a>
+          <a class="underline" href="#tickets">Tickets</a>
+          <a class="underline" href="#venue">Info</a>
+          <a class="underline" href="#contacts">Contacts</a>
+        </div>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a href="#tickets" class="btn-cta">Buy Tickets</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-labelledby="hero-heading">
+    <div class="hero-inner container">
+      <div class="hero-left">
+        <span class="eyebrow reveal stagger-1">LONDON • 30 OCT 2025</span>
+        <h1 id="hero-heading" class="reveal stagger-2">Unprocessed: An Intimate Night of Progressive Metal at Blondies Brewery</h1>
+        <p class="lead reveal stagger-3">Experience the technical mastery and raw energy of Unprocessed in a special live performance at one of London's most vibrant independent venues. Don't miss out on what promises to be an unforgettable night.</p>
+        <div class="hero-ctas reveal stagger-4">
+          <a href="#tickets" class="big-cta">Buy Tickets</a>
+          <a href="#about" class="secondary">Learn About the Band</a>
+        </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">Start: <strong>19:00</strong> — Blondies Brewery, London</div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="visual-card" role="img" aria-label="Unprocessed concert promo">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-weight:800;font-size:18px">Unprocessed</div>
+              <div class="meta">Live in London — 30 Oct 2025</div>
+            </div>
+            <div style="text-align:right;color:var(--muted);font-size:13px">Blondies Brewery<br><span style="color:var(--accent);font-weight:700">258 Church Road</span></div>
+          </div>
+
+          <!-- decorative stripes -->
+          <div style="height:10px;display:flex;gap:6px;margin-top:18px">
+            <div style="flex:2;background:rgba(255,255,255,0.02);height:6px;border-radius:6px"></div>
+            <div style="flex:1;background:rgba(226,59,59,0.18);height:6px;border-radius:6px"></div>
+            <div style="flex:3;background:rgba(255,255,255,0.01);height:6px;border-radius:6px"></div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="band-thumb" aria-hidden="true">U</div>
+              <div style="font-size:13px;color:var(--muted)"><strong>Special set</strong><br> + after-party</div>
+            </div>
+            <div style="font-weight:800;color:var(--accent);font-size:18px">From £25</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" style="margin-top:0">About the Band</h2>
+        <div class="about reveal">
+          <div class="text">
+            <p style="margin-top:0;color:var(--muted)">Unprocessed is a German progressive metal band from Wiesbaden, formed in 2013. They are known for their technically sophisticated modern style of progressive metal, blending striking guitar virtuosity with catchy hooks and furious metalcore breakdowns.</p>
+            <p style="color:var(--muted)">The band has released five full-length albums, including their latest, "...And Everything In Between," in late 2023. Critics have praised their live performances as excellent and worth seeing.</p>
+            <p style="color:var(--muted)">Often compared to bands like Polyphia and Animals as Leaders, Unprocessed has carved out a unique space in the progressive metal scene with their intricate, progressive guitar riffs and melodic vocals. Their frontman, Manuel Gardner Fernandes, is recognized for his virtuosic shredding and forceful vocal delivery.</p>
+            <div style="margin-top:16px">
+              <a href="#tickets" class="btn-cta">Book Now</a>
+            </div>
+          </div>
+          <div class="image" aria-hidden="true">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/Z4_6h1i-S-4" title="Unprocessed - Real (feat. Tim Henson & Clay Gober)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKETS -->
+    <section id="tickets" aria-labelledby="tickets-title">
+      <div class="container">
+        <h2 id="tickets-title" style="margin-top:0">Tickets — Preview</h2>
+        <p style="color:var(--muted)">Various ticket categories are available — pick your style.</p>
+
+        <div class="tickets-grid" style="margin-top:18px">
+          <!-- Ticket 1 -->
+          <div class="ticket reveal">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="title">Early Bird</div>
+                <div class="notes">Limited run — best price for front area</div>
+              </div>
+              <div class="price">£25</div>
+            </div>
+            <div class="notes">Includes access to standing area. Non-refundable.</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div class="notes">Doors: 18:30</div>
+              <div class="notes">Free cloakroom</div>
+            </div>
+            <button class="buy" onclick="openBuy('Early Bird','25')">Buy — £25</button>
+          </div>
+
+          <!-- Ticket 2 -->
+          <div class="ticket reveal">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="title">General Admission</div>
+                <div class="notes">Standard entry to standing area</div>
+              </div>
+              <div class="price">£30</div>
+            </div>
+            <div class="notes">Access to main hall. Bar services available.</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div class="notes">Doors: 18:30</div>
+              <div class="notes">Card & cash payments</div>
+            </div>
+            <button class="buy" onclick="openBuy('General Admission','30')">Buy — £30</button>
+          </div>
+
+          <!-- Ticket 3 -->
+          <div class="ticket reveal">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="title">VIP</div>
+                <div class="notes">Limited seating area + bar access</div>
+              </div>
+              <div class="price">£65</div>
+            </div>
+            <div class="notes">Short meet with the band in lounge (photo prohibited).</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div class="notes">VIP zone</div>
+              <div class="notes">Priority entry</div>
+            </div>
+            <button class="buy" onclick="openBuy('VIP','65')">Buy — £65</button>
+          </div>
+
+          <!-- Ticket 4 -->
+          <div class="ticket reveal">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="title">Meet & Greet</div>
+                <div class="notes">Only 20 tickets — photo, merch bundle</div>
+              </div>
+              <div class="price">£120</div>
+            </div>
+            <div class="notes">Backstage meet, photo, autograph, limited tee.</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div class="notes">Private area</div>
+              <div class="notes">VIP drinks</div>
+            </div>
+            <button class="buy" onclick="openBuy('Meet & Greet','120')">Buy — £120</button>
+          </div>
+        </div>
+
+        <p style="color:var(--muted);margin-top:14px;font-size:13px">Please check availability and refund conditions on the purchase page.</p>
+      </div>
+    </section>
+
+    <!-- VENUE / CONTACTS -->
+    <section id="venue" aria-labelledby="venue-title">
+      <div class="container">
+        <h2 id="venue-title" style="margin-top:0">Venue & Info</h2>
+        <div class="venue reveal">
+          <div class="left">
+            <div class="address">Blondies Brewery — 258 Church Road, London, UK</div>
+            <div class="time">Date: <strong>30 October 2025</strong> • Start time: <strong>19:00</strong></div>
+            <div style="margin-top:10px;color:var(--muted)">Please arrive early — doors open at 18:30. Organiser contact: <a href="mailto:info@unprocessed.band" style="color:var(--accent)">info@unprocessed.band</a></div>
+            <div style="margin-top:12px">
+              <a href="https://www.google.com/maps/search/?api=1&query=258+Church+Road+Blondies+Brewery+London" target="_blank" rel="noopener" class="secondary">Open in Google Maps</a>
+            </div>
+          </div>
+          <div class="right">
+            <!-- small embed-like placeholder -->
+            <div style="border-radius:10px;padding:12px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+              <div style="font-weight:700">About Blondies Brewery</div>
+              <!-- UPDATED: Venue description changed -->
+              <div style="color:var(--muted);margin-top:6px">Blondies is not just a bar and a brewery—it's a cultural hub where good times are guaranteed, friendships are forged, and memories are made.</div>
+              <div style="margin-top:10px;color:var(--muted)">Nearby: Tube and bus routes. Limited parking available.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <h2 id="contacts-title" style="margin-top:0">Contact</h2>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:260px;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+            <div style="font-weight:700">Organizer</div>
+            <div style="color:var(--muted);margin-top:6px">Email: <a href="mailto:info@unprocessed.band" style="color:var(--accent)">info@unprocessed.band</a></div>
+            <div style="color:var(--muted);margin-top:6px">Phone: +44 20 7946 0958</div>
+          </div>
+
+          <div style="flex:1;min-width:260px;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+            <div style="font-weight:700">Social Links</div>
+            <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="secondary" href="https://www.instagram.com/unprocessedband/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+              <a class="secondary" href="https://www.facebook.com/Unprocessedofficial/" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+              <a class="secondary" href="https://www.youtube.com/c/Unprocessed" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+            </div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">For press inquiries: press@unprocessed.band</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © Unprocessed • 30 Oct 2025 • Blondies Brewery — 258 Church Road, London
+  </footer>
+
+  <!-- Simple modal-less buy flow placeholder (for demo) -->
+  <script>
+    // Sticky nav shadow toggle
+    (function(){
+      const nav = document.getElementById('site-nav');
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      function onScroll(){
+        if(window.scrollY > 20) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, {passive:true});
+
+      // Mobile menu toggle (simple)
+      hamburger.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          // show mobile nav as a temporary overlay
+          const menu = document.createElement('div');
+          menu.id = 'mobile-menu';
+          menu.style.position = 'fixed';
+          menu.style.top = 'var(--nav-height)';
+          menu.style.left = '0';
+          menu.style.right = '0';
+          menu.style.background = 'linear-gradient(180deg, rgba(11,11,13,0.98), rgba(11,11,13,0.96))';
+          menu.style.borderTop = '1px solid rgba(255,255,255,0.02)';
+          menu.style.padding = '18px';
+          menu.style.zIndex = '1400';
+          menu.style.display = 'flex';
+          menu.style.flexDirection = 'column';
+          menu.style.gap = '12px';
+          menu.style.animation = 'floatUp .18s ease';
+          menu.innerHTML = '<a href=\"#about\" style=\"color:#fff;padding:10px;border-radius:8px\">About</a><a href=\"#tickets\" style=\"color:#fff;padding:10px;border-radius:8px\">Tickets</a><a href=\"#venue\" style=\"color:#fff;padding:10px;border-radius:8px\">Info</a><a href=\"#contacts\" style=\"color:#fff;padding:10px;border-radius:8px\">Contacts</a>';
+          document.body.appendChild(menu);
+
+          // close on outside click or on link click
+          function removeMenu(){ if(menu.parentNode) menu.parentNode.removeChild(menu); hamburger.setAttribute('aria-expanded','false'); document.removeEventListener('click', outside); }
+          function outside(e){ if(!menu.contains(e.target) && e.target !== hamburger) removeMenu(); }
+          document.addEventListener('click', outside);
+          menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', removeMenu));
+        } else {
+          const existing = document.getElementById('mobile-menu');
+          if(existing) existing.remove();
+        }
+      });
+
+      // Buy button handler (placeholder)
+      window.openBuy = function(type, price){
+        const confirmed = confirm(`Buy ticket: ${type} — £${price}\nProceed to payment?`);
+        if(confirmed){
+          window.location.href = `#tickets`;
+          alert('Redirect to purchase page (demo).');
+        }
+      };
+
+      // Improve anchor scroll offset for fixed nav
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(!target) return;
+          e.preventDefault();
+          const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
+          const rect = target.getBoundingClientRect();
+          const absoluteY = window.scrollY + rect.top - navHeight - 12;
+          window.scrollTo({top:absoluteY, behavior:'smooth'});
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

@@ -435,35 +435,8 @@ p.lead{
 }
 .meta{color:var(--muted);font-size:13px}
 
-/* Decorative stripes */
-.decorative-stripes{
-  height:10px;display:flex;gap:6px;margin-top:18px;
-}
-.stripe{
-  height:6px;border-radius:6px;
-  transition: flex 0.3s ease-in-out;
-}
-.stripe-left{
-  flex:2;
-  background:rgba(255,255,255,0.02);
-}
-.stripe-center{
-  flex:1;
-  background:rgba(226,59,59,0.18);
-}
-.stripe-right{
-  flex:3;
-  background:rgba(255,255,255,0.01);
-}
-.visual-card:hover .stripe-left{
-  flex: 0.5;
-}
-.visual-card:hover .stripe-center{
-  flex: 3;
-}
-.visual-card:hover .stripe-right{
-  flex: 0.5;
-}
+
+
 
 /* SECTIONS */
 main{

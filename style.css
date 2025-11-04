@@ -623,7 +623,16 @@ section[id]{scroll-margin-top: calc(var(--nav-height) + 16px)}
   height: auto;
   filter: invert(1) hue-rotate(180deg) brightness(0.8) contrast(1.2);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+}
+
+.map-container {
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 /* Pulse animation for CTA */

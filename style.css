@@ -2,7 +2,7 @@
   --bg:#0b0b0d;
   --panel:#0f1113;
   --muted:#9aa0a6;
-  --accent:#e23b3b; /* red accent */
+  --accent:#ff4444; /* brighter red accent */
   --glass: rgba(255,255,255,0.04);
   --card:#121216;
   --max-width:1200px;
@@ -270,11 +270,16 @@ img{
   gap:12px;
 }
 .logo .symbol{
-  width:44px;height:44px;border-radius:8px;
+  width:50px;height:50px;border-radius:8px;
   background: linear-gradient(135deg,#2b2b2b,var(--accent));
   display:flex;align-items:center;justify-content:center;
   font-weight:800;font-size:18px;color:#fff;letter-spacing:.6px;
-  box-shadow: 0 6px 18px rgba(226,59,59,0.08);
+  box-shadow: 0 6px 18px rgba(255,68,68,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.logo .symbol:hover{
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255,68,68,0.2);
 }
 .logo .title{
   font-weight:700;font-size:16px;
@@ -284,7 +289,7 @@ nav .nav-links{
   display:flex;gap:18px;align-items:center;
 }
 nav .nav-links a{
-  font-weight:600;color:var(--muted);padding:8px 12px;border-radius:8px;
+  font-weight:600;font-size:16px;color:var(--muted);padding:8px 12px;border-radius:8px;
   transition: color .18s ease, background .18s ease, transform .15s ease;
 }
 nav .nav-links a:hover{
@@ -374,6 +379,7 @@ header.hero{
 }
 h1{
   font-size:clamp(36px,6vw,64px);
+  font-weight:900;
   margin:6px 0 12px;
   line-height:1.02;
   letter-spacing:-0.02em;
@@ -388,6 +394,7 @@ p.lead{
   background: linear-gradient(90deg,var(--accent), #ff6a6a);
   color:#fff;font-weight:700;box-shadow: 0 14px 40px rgba(226,59,59,0.12);
   transition: transform .15s ease, box-shadow .15s ease;
+  animation: pulse 2s infinite;
 }
 .big-cta:hover{transform:translateY(-4px)}
 .secondary{
@@ -421,7 +428,7 @@ main{
   padding-top:24px;
 }
 section{
-  padding:64px 20px;
+  padding:80px 20px;
   max-width:var(--max-width);
   margin:0 auto;
 }
@@ -438,8 +445,8 @@ section:nth-of-type(odd){
   background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
   border-radius:16px;padding:26px;border:1px solid rgba(255,255,255,0.03);
 }
-.about .text{flex:2;min-width:240px}
-.about .image{flex:1;min-width:220px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#111,#090909);height:200px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.about .text{flex:2;min-width:240px;max-width:600px}
+.about .image{flex:1;min-width:220px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#111,#090909);height:300px;display:flex;align-items:center;justify-content:center;font-weight:800}
 
 .tickets-grid{
   display:grid;
@@ -453,6 +460,10 @@ section:nth-of-type(odd){
   display:flex;flex-direction:column;gap:10px;min-height:170px;
 }
 .ticket:hover{transform:translateY(-8px);box-shadow: 0 24px 60px rgba(0,0,0,0.6)}
+.ticket.vip, .ticket.meet-greet{
+  border: 2px solid var(--accent);
+  background: linear-gradient(180deg, rgba(255,68,68,0.05), rgba(0,0,0,0.15));
+}
 .ticket .title{font-weight:700;font-size:16px}
 .ticket .price{font-size:18px;font-weight:800;color:var(--accent)}
 .ticket .notes{color:var(--muted);font-size:13px}
@@ -567,6 +578,11 @@ section[id]{scroll-margin-top: calc(var(--nav-height) + 16px)}
   color: inherit;
   width: 100%;
   box-sizing: border-box;
+  padding: 12px;
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--panel);
 }
 
 /* Social icons */
@@ -576,4 +592,18 @@ section[id]{scroll-margin-top: calc(var(--nav-height) + 16px)}
 .social-icon:hover {
   transform: scale(1.1);
   color: var(--accent);
+}
+
+/* Venue map styling */
+.venue iframe {
+  filter: invert(1) hue-rotate(180deg) brightness(0.8) contrast(1.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Pulse animation for CTA */
+@keyframes pulse {
+  0% { box-shadow: 0 14px 40px rgba(255,68,68,0.12); }
+  50% { box-shadow: 0 14px 40px rgba(255,68,68,0.3); }
+  100% { box-shadow: 0 14px 40px rgba(255,68,68,0.12); }
 }
